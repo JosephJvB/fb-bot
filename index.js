@@ -2,7 +2,7 @@ const express = require('express');
 const axios = require('axios');
 
 const port = process.env.PORT || 3000;
-const token = process.env.TOKEN || 'token';
+const token = process.env.ACCESS_TOKEN || 'token';
 
 const server = express();
 server.use(express.json());
