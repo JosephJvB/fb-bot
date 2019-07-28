@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const axios = require('axios');
 
 const port = process.env.PORT || 3000;
@@ -6,6 +7,11 @@ const token = process.env.ACCESS_TOKEN || 'token';
 
 const server = express();
 server.use(express.json());
+server.use(express.static(__dirname));
+
+server.get('/pp', (req, res) => {
+  res.sendFile(path.join(__dirname, 'pp.html'));
+})
 
 server.get('/ping', (req, res) => {
   res.status(200).send('pong!');
